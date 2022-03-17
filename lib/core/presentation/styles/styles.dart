@@ -29,4 +29,18 @@ class Styles {
         fontWeight: FontWeight.w300,
         fontSize: 12.sp);
   }
+
+  static TextStyle vaderIsWatchingTextStyle() {
+    return GoogleFonts.bebasNeue(
+        color: greenFlourescentColor,
+        fontWeight: FontWeight.w600,
+        fontSize: 24.sp);
+  }
+
+  static TextStyle noInternetTextStyle() {
+    return GoogleFonts.bebasNeue(
+        color: greenFlourescentColor,
+        fontWeight: FontWeight.w300,
+        fontSize: 14.sp);
+  }
 }

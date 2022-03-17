@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:starwars/core/platform/main_binding.dart';
-import 'package:starwars/home/presentation/pages/home_page.dart';
+import 'package:starwars/core/presentation/navigation/routes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,10 +23,11 @@ class StarWarsApp extends StatelessWidget {
     ]);
 
     return Sizer(builder: (context, orientation, deviceType) {
-      return const MaterialApp(
+      return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Star Wars App',
-        home: HomePage(),
+        initialRoute: Routes.home,
+        getPages: Pages.pages,
       );
     });
   }

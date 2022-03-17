@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:starwars/core/error/failures.dart';
 import 'package:starwars/core/platform/api_network.dart';
-import 'package:starwars/core/platform/network_info.dart';
 import 'package:starwars/home/data/data_sources/invasor_data_source.dart';
 import 'package:starwars/home/data/models/invader_model.dart';
 import 'package:starwars/home/domain/entities/invader.dart';
@@ -9,9 +8,8 @@ import 'package:starwars/home/domain/repositories/invader_repository.dart';
 
 class InvaderRepositoryImp extends InvaderRepository {
   final InvasorDataSource invasorDataSource;
-  final NetworkInfo networkInfo;
 
-  InvaderRepositoryImp(this.invasorDataSource, this.networkInfo);
+  InvaderRepositoryImp({required this.invasorDataSource});
 
   @override
   Future<Either<Failure, Invader>> getInvader(int id) async {

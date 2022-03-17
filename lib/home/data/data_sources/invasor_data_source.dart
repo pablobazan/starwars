@@ -10,7 +10,7 @@ abstract class InvasorDataSource {
 class InvasorDataSourceImpl implements InvasorDataSource {
   final HttpClient client;
 
-  InvasorDataSourceImpl(this.client);
+  InvasorDataSourceImpl({required this.client});
 
   @override
   Future<InvaderModel> getInvader(int id) async {

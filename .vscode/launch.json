@@ -1,0 +1,34 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "EmuladorAndroid",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "emulator-5554",
+            "program": "lib/main.dart",
+            "justMyCode": true,
+        },
+        {
+            "name": "MotoG31",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "ZY22F26JP6",
+            "program": "lib/main.dart",
+            "args": [
+                "--flavor",
+                "tst"
+            ],
+            "justMyCode": true,
+        }
+    ],
+    "compounds": [
+        {
+            "name": "All devices",
+            "configurations": ["MotoG31", "EmuladorAndroid"]
+        }
+    ]
+}
