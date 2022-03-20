@@ -41,6 +41,18 @@ class Styles {
     return GoogleFonts.bebasNeue(
         color: greenFlourescentColor,
         fontWeight: FontWeight.w300,
-        fontSize: 14.sp);
+        fontSize: 18.sp);
+  }
+
+  static TextStyle nameDetailStyle() {
+    return GoogleFonts.bebasNeue(
+        color: greenFlourescentColor,
+        fontWeight: FontWeight.w300,
+        fontSize: 24.sp);
+  }
+
+  static TextStyle textReportStyle() {
+    return GoogleFonts.bebasNeue(
+        color: Colors.black, fontWeight: FontWeight.w500, fontSize: 24.sp);
   }
 }

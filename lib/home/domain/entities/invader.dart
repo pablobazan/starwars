@@ -1,5 +1,18 @@
 import 'package:equatable/equatable.dart';
 
+class InvaderList extends Equatable {
+  final num count;
+  final String? next;
+  final String? previous;
+  final List<Invader> invaders;
+
+  const InvaderList(
+      {required this.count, this.next, this.previous, required this.invaders});
+
+  @override
+  List<Object> get props => [count];
+}
+
 class Invader extends Equatable {
   const Invader({
     required this.name,
@@ -33,8 +46,8 @@ class Invader extends Equatable {
   final List<dynamic> species;
   final List<String> vehicles;
   final List<String> starships;
-  final DateTime created;
-  final DateTime edited;
+  final String created;
+  final String edited;
   final String url;
 
   @override

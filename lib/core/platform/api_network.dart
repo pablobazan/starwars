@@ -9,6 +9,8 @@ class ApiNetwork {
       return Right(result);
     } on ServerException {
       return Left(ServerFailure());
+    } on NotFoundException {
+      return Left(CacheFailure());
     } catch (_) {
       return Left(ServerFailure());
     }

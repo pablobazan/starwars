@@ -1,5 +1,25 @@
 import 'package:starwars/home/domain/entities/invader.dart';
 
+class InvaderListModel extends InvaderList {
+  const InvaderListModel(
+      {required num count,
+      required String? next,
+      required String? previous,
+      required List<InvaderModel> invaders})
+      : super(count: count, next: next, previous: previous, invaders: invaders);
+
+  factory InvaderListModel.fromJson(Map<String, dynamic> json) {
+    return InvaderListModel(
+      count: json['count'],
+      next: json['next'],
+      previous: json['previous'],
+      invaders: (json['results'] as List)
+          .map((e) => InvaderModel.fromJson(e))
+          .toList(),
+    );
+  }
+}
+
 class InvaderModel extends Invader {
   const InvaderModel({
     required String name,
@@ -15,8 +35,8 @@ class InvaderModel extends Invader {
     required List<dynamic> species,
     required List<String> vehicles,
     required List<String> starships,
-    required DateTime created,
-    required DateTime edited,
+    required String created,
+    required String edited,
     required String url,
   }) : super(
             name: name,
@@ -41,15 +61,15 @@ class InvaderModel extends Invader {
         height: json['height'],
         mass: json['mass'],
         hairColor: json['hair_color'],
-        skinColor: json['sin_color'],
+        skinColor: json['skin_color'],
         eyeColor: json['eye_color'],
         birthYear: json['birth_year'],
         gender: json['gender'],
         homeworld: json['homeworld'],
-        films: json['films'],
-        species: json['species'],
-        vehicles: json['vehicles'],
-        starships: json['starships'],
+        films: (json['films'] as List<dynamic>).cast<String>(),
+        species: (json['species'] as List<dynamic>).cast<String>(),
+        vehicles: (json['vehicles'] as List<dynamic>).cast<String>(),
+        starships: (json['starships'] as List<dynamic>).cast<String>(),
         created: json['created'],
         edited: json['edited'],
         url: json['url'],

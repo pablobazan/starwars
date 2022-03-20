@@ -5,8 +5,10 @@ import 'package:starwars/core/localization/strings.dart';
 import 'package:starwars/core/presentation/styles/colors.dart';
 import 'package:starwars/core/presentation/styles/styles.dart';
 
-class EmptyPage extends StatelessWidget {
-  const EmptyPage({Key? key}) : super(key: key);
+class ErrorPage extends StatelessWidget {
+  const ErrorPage({Key? key, required this.retryConnection}) : super(key: key);
+
+  final VoidCallback retryConnection;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class EmptyPage extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: 20.h,
+            height: 16.h,
           ),
           SvgPicture.asset(
             'assets/icons/vader.svg',
@@ -34,6 +36,18 @@ class EmptyPage extends StatelessWidget {
           Text(
             Strings.noInteret,
             style: Styles.noInternetTextStyle(),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 3.h),
+            child: MaterialButton(
+                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 2.h),
+                color: greenFlourescentColor,
+                focusElevation: 0.0,
+                onPressed: () => retryConnection(),
+                child: Text(
+                  Strings.retryConnection,
+                  style: Styles.textReportStyle(),
+                )),
           ),
         ],
       ),

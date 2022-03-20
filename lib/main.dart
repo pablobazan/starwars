@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 import 'package:starwars/core/platform/main_binding.dart';
 import 'package:starwars/core/presentation/navigation/routes.dart';
@@ -28,6 +29,9 @@ class StarWarsApp extends StatelessWidget {
         title: 'Star Wars App',
         initialRoute: Routes.home,
         getPages: Pages.pages,
+        theme: ThemeData.light().copyWith(
+            textTheme:
+                GoogleFonts.mulishTextTheme(Theme.of(context).textTheme)),
       );
     });
   }

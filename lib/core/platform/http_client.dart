@@ -18,7 +18,7 @@ abstract class HttpClient {
 
 class HttpClientImpl implements HttpClient {
   final NetworkInfo connection;
-  final url = 'https://swapi.dev/api';
+  // final url = 'https://swapi.dev/api';
   late BaseOptions _options;
 
   bool isNotValidResponse(int statusCode) =>
@@ -26,7 +26,7 @@ class HttpClientImpl implements HttpClient {
 
   HttpClientImpl({required this.connection}) {
     _options = BaseOptions(
-      baseUrl: url,
+      // baseUrl: url,
       connectTimeout: 25000,
       receiveTimeout: 30000,
     );

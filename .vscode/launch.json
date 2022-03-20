@@ -18,10 +18,10 @@
             "type": "dart",
             "deviceId": "ZY22F26JP6",
             "program": "lib/main.dart",
-            "args": [
-                "--flavor",
-                "tst"
-            ],
+            // "args": [
+            //     "--flavor",
+            //     "tst"
+            // ],
             "justMyCode": true,
         }
     ],
