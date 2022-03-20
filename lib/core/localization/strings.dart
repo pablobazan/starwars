@@ -16,5 +16,5 @@ class Strings {
   static const String retryInvaders = 'AND NOW?';
   static const String invaderReported = 'REPORTED INVADER';
   static const String rebelionShip =
-      'A REBELION SHIP IS HEADING TO YOU LOCATION';
+      'A REBELION SHIP IS HEADING TO YOUR LOCATION';
 }

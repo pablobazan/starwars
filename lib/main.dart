@@ -8,7 +8,6 @@ import 'package:starwars/core/presentation/navigation/routes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
   MainBinding().init();
   runApp(const StarWarsApp());
 }
@@ -26,12 +25,11 @@ class StarWarsApp extends StatelessWidget {
     return Sizer(builder: (context, orientation, deviceType) {
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Star Wars App',
         initialRoute: Routes.home,
         getPages: Pages.pages,
         theme: ThemeData.light().copyWith(
             textTheme:
-                GoogleFonts.mulishTextTheme(Theme.of(context).textTheme)),
+                GoogleFonts.bebasNeueTextTheme(Theme.of(context).textTheme)),
       );
     });
   }
