@@ -17,4 +17,8 @@ class Strings {
   static const String invaderReported = 'REPORTED INVADER';
   static const String rebelionShip =
       'A REBELION SHIP IS HEADING TO YOUR LOCATION';
+  static const String connection = 'CONNECTION';
+  static const String noInternetConnection = 'NO INTERNET CONNECTION';
+  static const String pleaseActivateTheConnection =
+      'PLEASE ACTIVATE THE CONNECTION';
 }

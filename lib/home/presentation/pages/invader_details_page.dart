@@ -6,16 +6,21 @@ import 'package:starwars/core/localization/strings.dart';
 import 'package:starwars/core/presentation/styles/colors.dart';
 import 'package:starwars/core/presentation/styles/styles.dart';
 import 'package:starwars/core/widgets/app_bar.dart';
+import 'package:starwars/core/widgets/internet_drawer/internet_drawer.dart';
+import 'package:starwars/core/widgets/internet_drawer/internet_drawer_controller.dart';
 import 'package:starwars/home/presentation/controllers/invader_details_controller.dart';
 
 class InvaderDetailsPage extends GetView<InvaderDetailsController> {
-  const InvaderDetailsPage({Key? key}) : super(key: key);
+  InvaderDetailsPage({Key? key}) : super(key: key);
+
+  final connectionController = Get.find<InternetDrawerController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: backgroundColor,
         appBar: const StarWarsAppBar(),
+        endDrawer: InternetDrawer(),
         body: Padding(
           padding: EdgeInsets.only(left: 5.w, right: 5.w, top: 4.h),
           child: Container(
@@ -105,18 +110,24 @@ class InvaderDetailsPage extends GetView<InvaderDetailsController> {
                   ),
                 ),
                 const Spacer(),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 3.h),
-                  child: MaterialButton(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 18.w, vertical: 2.h),
-                      color: greenFlourescentColor,
-                      focusElevation: 0.0,
-                      onPressed: () => controller.sendReport(),
-                      child: Text(
-                        Strings.report,
-                        style: Styles.textReportStyle(),
-                      )),
+                Obx(
+                  () => Padding(
+                    padding: EdgeInsets.symmetric(vertical: 3.h),
+                    child: MaterialButton(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 18.w, vertical: 2.h),
+                        color: connectionController.enableInternet.value
+                            ? greenFlourescentColor
+                            : Colors.grey,
+                        focusElevation: 0.0,
+                        onPressed: connectionController.enableInternet.value
+                            ? () => controller.sendReport()
+                            : () => controller.showNoInternetConnection(),
+                        child: Text(
+                          Strings.report,
+                          style: Styles.textReportStyle(),
+                        )),
+                  ),
                 ),
               ],
             ),

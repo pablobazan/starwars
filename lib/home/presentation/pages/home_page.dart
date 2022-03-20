@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:starwars/core/presentation/styles/colors.dart';
 import 'package:starwars/core/widgets/app_bar.dart';
+import 'package:starwars/core/widgets/internet_drawer/internet_drawer.dart';
 import 'package:starwars/core/widgets/loading_page.dart';
 import 'package:starwars/home/domain/entities/invader.dart';
 import 'package:starwars/home/presentation/controllers/home_controller.dart';
@@ -19,6 +20,7 @@ class HomePage extends GetView<HomeController> {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: const StarWarsAppBar(),
+      endDrawer: InternetDrawer(),
       body: controller.obx(
           (invaderList) =>
               _Content(invaderList: invaderList!, controller: controller),

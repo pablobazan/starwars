@@ -17,7 +17,7 @@ class Pages {
         binding: HomeBindings()),
     GetPage(
         name: Routes.invaderDetail,
-        page: () => const InvaderDetailsPage(),
+        page: () => InvaderDetailsPage(),
         binding: InvaderDetailsBinding())
   ];
 }

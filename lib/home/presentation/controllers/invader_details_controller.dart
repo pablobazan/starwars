@@ -40,4 +40,13 @@ class InvaderDetailsController extends GetxController {
     });
     isSendingReport = false;
   }
+
+  void showNoInternetConnection() {
+    Get.snackbar(
+        Strings.noInternetConnection, Strings.pleaseActivateTheConnection,
+        duration: const Duration(milliseconds: 1500),
+        backgroundColor: greenFlourescentColor,
+        borderColor: Colors.black,
+        borderWidth: 2);
+  }
 }
