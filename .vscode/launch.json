@@ -5,12 +5,24 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "dev",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+        },  
+        {
+            "name": "EmuladoriOS",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "77ECAA26-CFAA-4A6E-978B-A4FB6C9E4052",
+            "program": "lib/main.dart",
+        },
+        {
             "name": "EmuladorAndroid",
             "request": "launch",
             "type": "dart",
             "deviceId": "emulator-5554",
             "program": "lib/main.dart",
-            "justMyCode": true,
         },
         {
             "name": "MotoG31",
@@ -22,7 +34,6 @@
             //     "--flavor",
             //     "tst"
             // ],
-            "justMyCode": true,
         }
     ],
     "compounds": [

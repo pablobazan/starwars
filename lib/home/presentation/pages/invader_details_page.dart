@@ -22,7 +22,8 @@ class InvaderDetailsPage extends GetView<InvaderDetailsController> {
         appBar: const StarWarsAppBar(),
         endDrawer: InternetDrawer(),
         body: Padding(
-          padding: EdgeInsets.only(left: 5.w, right: 5.w, top: 4.h),
+          padding:
+              EdgeInsets.only(left: 5.w, right: 5.w, top: 4.h, bottom: 4.h),
           child: Container(
             width: double.infinity,
             child: Column(
