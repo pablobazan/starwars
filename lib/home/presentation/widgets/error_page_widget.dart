@@ -4,6 +4,7 @@ import 'package:sizer/sizer.dart';
 import 'package:starwars/core/localization/strings.dart';
 import 'package:starwars/core/presentation/styles/colors.dart';
 import 'package:starwars/core/presentation/styles/styles.dart';
+import 'package:starwars/core/utils/assets_path.dart';
 
 class ErrorPage extends StatelessWidget {
   const ErrorPage({Key? key, required this.retryConnection}) : super(key: key);
@@ -19,8 +20,8 @@ class ErrorPage extends StatelessWidget {
             height: 16.h,
           ),
           SvgPicture.asset(
-            'assets/icons/vader.svg',
-            color: greenFlourescentColor,
+            AssetsPath.vader,
+            color: AppColors.greenFlourescentColor,
           ),
           SizedBox(
             height: 4.h,
@@ -41,7 +42,7 @@ class ErrorPage extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 3.h),
             child: MaterialButton(
                 padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 2.h),
-                color: greenFlourescentColor,
+                color: AppColors.greenFlourescentColor,
                 focusElevation: 0.0,
                 onPressed: () => retryConnection(),
                 child: Text(

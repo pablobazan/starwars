@@ -4,6 +4,7 @@ import 'package:sizer/sizer.dart';
 import 'package:starwars/core/localization/strings.dart';
 import 'package:starwars/core/presentation/styles/colors.dart';
 import 'package:starwars/core/presentation/styles/styles.dart';
+import 'package:starwars/core/utils/assets_path.dart';
 
 class EmptyPage extends StatelessWidget {
   const EmptyPage({Key? key, required this.retryInvaders}) : super(key: key);
@@ -19,8 +20,8 @@ class EmptyPage extends StatelessWidget {
             height: 20.h,
           ),
           SvgPicture.asset(
-            'assets/icons/tropper.svg',
-            color: greenFlourescentColor,
+            AssetsPath.tropper,
+            color: AppColors.greenFlourescentColor,
           ),
           SizedBox(
             height: 4.h,
@@ -34,7 +35,7 @@ class EmptyPage extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 3.h),
             child: MaterialButton(
                 padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 2.h),
-                color: greenFlourescentColor,
+                color: AppColors.greenFlourescentColor,
                 focusElevation: 0.0,
                 onPressed: () => retryInvaders(),
                 child: Text(

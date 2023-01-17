@@ -9,8 +9,22 @@ class InvaderList extends Equatable {
   const InvaderList(
       {required this.count, this.next, this.previous, required this.invaders});
 
+  copyWith({
+    num? count,
+    String? next,
+    String? previous,
+    List<Invader>? invaders,
+  }) {
+    return InvaderList(
+      count: count ?? this.count,
+      next: next ?? this.next,
+      previous: previous ?? this.previous,
+      invaders: invaders ?? this.invaders,
+    );
+  }
+
   @override
-  List<Object> get props => [count];
+  List<Object> get props => [count, invaders];
 }
 
 class Invader extends Equatable {
@@ -51,5 +65,6 @@ class Invader extends Equatable {
   final String url;
 
   @override
-  List<Object?> get props => [name];
+  List<Object?> get props =>
+      [name, height, mass, hairColor, skinColor, eyeColor];
 }

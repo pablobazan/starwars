@@ -9,8 +9,8 @@ class StarWarsAppBar extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       shape: const Border(
-          bottom: BorderSide(color: greenFlourescentColor, width: 1)),
-      backgroundColor: backgroundColor,
+          bottom: BorderSide(color: AppColors.greenFlourescentColor, width: 1)),
+      backgroundColor: AppColors.backgroundColor,
       centerTitle: true,
       title: Text('Star Wars App', style: Styles.titleStyle()),
     );

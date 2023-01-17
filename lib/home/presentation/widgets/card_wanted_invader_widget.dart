@@ -4,9 +4,8 @@ import 'package:sizer/sizer.dart';
 import 'package:starwars/core/localization/strings.dart';
 import 'package:starwars/core/presentation/styles/colors.dart';
 import 'package:starwars/core/presentation/styles/styles.dart';
+import 'package:starwars/core/utils/assets_path.dart';
 import 'package:starwars/home/domain/entities/invader.dart';
-
-typedef NextPage = void Function(int index);
 
 class CardWantedInvader extends StatelessWidget {
   const CardWantedInvader({
@@ -16,14 +15,14 @@ class CardWantedInvader extends StatelessWidget {
     required this.nextPage,
   }) : super(key: key);
 
-  final InvaderList invaderList;
+  final List<Invader> invaderList;
   final int index;
-  final NextPage nextPage;
+  final Function nextPage;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => nextPage(index),
+      onTap: () => nextPage(),
       child: Container(
         height: 16.h,
         width: double.infinity,
@@ -44,13 +43,13 @@ class CardWantedInvader extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Hero(
-                    tag: invaderList.invaders[index].url,
+                    tag: invaderList[index].created,
                     child: SizedBox(
                       width: 15.w,
                       height: 8.h,
                       child: SvgPicture.asset(
-                        'assets/icons/wanted.svg',
-                        color: greenFlourescentColor,
+                        AssetsPath.wanted,
+                        color: AppColors.greenFlourescentColor,
                       ),
                     ),
                   ),
@@ -61,7 +60,7 @@ class CardWantedInvader extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '${Strings.name} ${invaderList.invaders[index].name}',
+                          '${Strings.name} ${invaderList[index].name}',
                           style: Styles.cardTagStyle(),
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -69,14 +68,14 @@ class CardWantedInvader extends StatelessWidget {
                           height: 0.5.h,
                         ),
                         Text(
-                          '${Strings.height} ${invaderList.invaders[index].height} cm',
+                          '${Strings.height} ${invaderList[index].height} cm',
                           style: Styles.cardTagStyle(),
                         ),
                       ],
                     ),
                   ),
                   Container(
-                    color: greenFlourescentColor,
+                    color: AppColors.greenFlourescentColor,
                     height: 7.h,
                     width: 1,
                     margin: EdgeInsets.symmetric(horizontal: 4.w),
@@ -88,14 +87,14 @@ class CardWantedInvader extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '${Strings.weight} ${invaderList.invaders[index].mass} kg',
+                          '${Strings.weight} ${invaderList[index].mass} kg',
                           style: Styles.cardTagStyle(),
                         ),
                         SizedBox(
                           height: 0.5.h,
                         ),
                         Text(
-                          '${Strings.sex} ${invaderList.invaders[index].gender}',
+                          '${Strings.sex} ${invaderList[index].gender}',
                           style: Styles.cardTagStyle(),
                         ),
                       ],
@@ -107,12 +106,16 @@ class CardWantedInvader extends StatelessWidget {
           ),
         ),
         decoration: BoxDecoration(
-            color: greenFlourescentColor.withOpacity(0.1),
+            color: AppColors.greenFlourescentColor.withOpacity(0.1),
             border: const Border(
-              bottom: BorderSide(color: greenFlourescentColor, width: 0.5),
-              left: BorderSide(color: greenFlourescentColor, width: 0.5),
-              right: BorderSide(color: greenFlourescentColor, width: 0.5),
-              top: BorderSide(color: greenFlourescentColor, width: 0.5),
+              bottom: BorderSide(
+                  color: AppColors.greenFlourescentColor, width: 0.5),
+              left: BorderSide(
+                  color: AppColors.greenFlourescentColor, width: 0.5),
+              right: BorderSide(
+                  color: AppColors.greenFlourescentColor, width: 0.5),
+              top: BorderSide(
+                  color: AppColors.greenFlourescentColor, width: 0.5),
             )),
       ),
     );

@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 import 'package:starwars/core/localization/strings.dart';
 import 'package:starwars/core/presentation/styles/colors.dart';
-import 'package:starwars/core/widgets/internet_drawer/internet_drawer_controller.dart';
+import 'package:starwars/core/widgets/internet_drawer/bloc/internet_drawer_bloc.dart';
 
 class InternetDrawer extends StatelessWidget {
-  InternetDrawer({Key? key}) : super(key: key);
-
-  final controller =
-      Get.put<InternetDrawerController>(InternetDrawerController());
+  const InternetDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +21,7 @@ class InternetDrawer extends StatelessWidget {
                 child: Column(
                   children: [
                     Container(
-                      color: greenFlourescentColor.withOpacity(0.8),
+                      color: AppColors.greenFlourescentColor.withOpacity(0.8),
                       width: double.infinity,
                       child: Column(
                         children: [
@@ -33,14 +30,18 @@ class InternetDrawer extends StatelessWidget {
                           ),
                           const Text(Strings.connection,
                               textAlign: TextAlign.center),
-                          Obx(
-                            () => Switch(
-                                activeColor: Colors.black,
-                                value: controller.enableInternet.value,
-                                onChanged: (value) {
-                                  controller.changeInternetConnection(value);
-                                }),
-                          )
+                          BlocBuilder<InternetDrawerBloc, InternetDrawerState>(
+                            builder: (context, state) {
+                              return Switch(
+                                  activeColor: Colors.black,
+                                  value: state.enableInternetConnection,
+                                  onChanged: (value) {
+                                    context.read<InternetDrawerBloc>().add(
+                                        InternetDrawerChangeInternetConnectionEvent(
+                                            value: value));
+                                  });
+                            },
+                          ),
                         ],
                       ),
                     ),
@@ -50,10 +51,12 @@ class InternetDrawer extends StatelessWidget {
               decoration: const BoxDecoration(
                   color: Colors.black, //,
                   border: Border(
-                    bottom:
-                        BorderSide(color: greenFlourescentColor, width: 0.5),
-                    left: BorderSide(color: greenFlourescentColor, width: 0.5),
-                    top: BorderSide(color: greenFlourescentColor, width: 0.5),
+                    bottom: BorderSide(
+                        color: AppColors.greenFlourescentColor, width: 0.5),
+                    left: BorderSide(
+                        color: AppColors.greenFlourescentColor, width: 0.5),
+                    top: BorderSide(
+                        color: AppColors.greenFlourescentColor, width: 0.5),
                   ))),
         ),
       ),
