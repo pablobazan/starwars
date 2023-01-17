@@ -1,16 +1,12 @@
-# starwars
+# StarWars App
 
-A new Flutter project.
+Star Wars application, in it you can find the use of clean architecture, the Dio package to get and post data and flutter_bloc (branch bloc) and GetX (branch getx) as state management.
 
-## Getting Started
+## Screens
 
-This project is a starting point for a Flutter application.
+It has two screens, the main one is a list with Star Wars characters brought from an API (https://swapi.dev/). The second screen is the details of the characters and send a report but only if you have a connection.
 
-A few resources to get you started if this is your first Flutter project:
+## App running
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+https://user-images.githubusercontent.com/15861039/213000056-e7494368-da42-44d9-a4db-35d600491325.mp4
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
