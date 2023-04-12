@@ -27,8 +27,8 @@ class HttpClientImpl implements HttpClient {
   HttpClientImpl({required this.connection}) {
     _options = BaseOptions(
       // baseUrl: url,
-      connectTimeout: 25000,
-      receiveTimeout: 30000,
+      connectTimeout: const Duration(milliseconds: 20000),
+      receiveTimeout: const Duration(milliseconds: 20000),
     );
   }
 
