@@ -21,7 +21,7 @@ class NotFoundException implements Exception {}
 class ExceptionUtils {
   static Exception getExceptionFromStatusCode(DioError error) {
     if (error.error is IOException ||
-        error.type == DioErrorType.connectTimeout) {
+        error.type == DioErrorType.connectionTimeout) {
       return NetworkException();
     } else if (error.response!.statusCode == HttpStatus.unauthorized ||
         error.response!.statusCode == HttpStatus.forbidden) {
@@ -32,6 +32,8 @@ class ExceptionUtils {
   }
 
   static Exception _throwByStatusCode(DioError error) {
+    const noMessageError = 'no error message';
+
     try {
       var httpError = error.response!.statusCode;
 
@@ -41,11 +43,11 @@ class ExceptionUtils {
         case 404:
           return NotFoundException();
         default:
-          return ServerException(error.message,
+          return ServerException(error.message ?? noMessageError,
               statusCode: error.response!.statusCode!);
       }
     } catch (_) {
-      return ServerException(error.message,
+      return ServerException(error.message ?? noMessageError,
           statusCode: error.response!.statusCode!);
     }
   }
